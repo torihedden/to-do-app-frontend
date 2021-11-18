@@ -13,7 +13,6 @@ function App() {
         if (mounted) {
           setIsLoaded(true);
           setTodos(res);
-          // setTodos(res.slice(0, 10));
         }
       })
       .catch((error) => {
@@ -71,7 +70,7 @@ function App() {
 
   return (
     <div className="app">
-      {!isLoaded && !error && <img src="logo192.png" alt="" width="100" />}
+      {!isLoaded && !error && <div>Loading...</div>}
       {isLoaded && !error && todos !== [] && (
         <List
           todos={todos}

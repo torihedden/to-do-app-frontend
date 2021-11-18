@@ -20,6 +20,9 @@ const List = (props) => {
               checked={todo.completed}
               onChange={() => {
                 handleEdit({ ...todo, completed: !todo.completed });
+                if (isEditing) {
+                  setIsEditing(false);
+                }
               }}
               id={todo.title}
               name={todo.title}
@@ -30,11 +33,11 @@ const List = (props) => {
           </label>
 
           <div>
-            {isEditing && todo._id === currentTodo.id && (
+            {isEditing && todo._id === currentTodo._id && (
               <input
+                type="text"
                 onChange={(event) => {
                   setCurrentTodo({ ...todo, title: event.target.value });
-                  console.log(currentTodo);
                 }}
                 id={todo._id}
                 name={todo.title}
@@ -42,15 +45,15 @@ const List = (props) => {
                 readOnly={todo.completed}
               />
             )}
-            {isEditing && todo._id === currentTodo.id && (
+            {isEditing && todo._id === currentTodo._id && (
               <button
                 className={"positive"}
                 onClick={() => {
-                  console.log(currentTodo);
                   handleEdit({
                     ...currentTodo,
                     title: currentTodo.title.trim(),
                   });
+                  setIsEditing(false);
                 }}
               >
                 Submit change
@@ -62,18 +65,18 @@ const List = (props) => {
                 if (!isEditing) {
                   setCurrentTodo(todo);
                   setIsEditing(true);
-                  console.log(currentTodo);
                 } else {
                   setCurrentTodo({});
                   setIsEditing(false);
                 }
               }}
             >
-              {isEditing && todo._id === currentTodo.id
+              {isEditing && todo._id === currentTodo._id
                 ? "Close editor"
                 : "Edit task"}
             </button>
             <button
+              title="Delete task"
               className={"negative"}
               onClick={() => handleDelete(todo._id)}
             >
