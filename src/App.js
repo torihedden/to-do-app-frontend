@@ -3,11 +3,16 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import List from "./List.jsx";
 
+const dotenv = require("dotenv");
+dotenv.config();
+
+const URI = process.env.REACT_APP_URI;
+
 function App() {
   useEffect(() => {
     let mounted = true;
 
-    fetch("http://localhost:5000/")
+    fetch(URI)
       .then((res) => res.json())
       .then((res) => {
         if (mounted) {
@@ -16,7 +21,7 @@ function App() {
         }
       })
       .catch((error) => {
-        console.log("error", error);
+        console.log("Error: ", error);
         setError("There was a problem retrieving your to-do list.");
       });
   }, []);
@@ -26,7 +31,7 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   const handleEdit = (currentTodo) => {
-    fetch("http://localhost:5000", {
+    fetch(URI, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +44,7 @@ function App() {
   };
 
   function handleAdd(todo) {
-    fetch("http://localhost:5000", {
+    fetch(URI, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -56,7 +61,7 @@ function App() {
   }
 
   function handleDelete(id) {
-    fetch("http://localhost:5000/", {
+    fetch(URI, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
