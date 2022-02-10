@@ -22,7 +22,7 @@ function App() {
       })
       .catch((error) => {
         console.log("Error: ", error);
-        setError("There was a problem retrieving your list.");
+        setError("There was a problem retrieving your to-do list.");
       });
   }, []);
 
