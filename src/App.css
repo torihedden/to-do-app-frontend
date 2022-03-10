@@ -1,15 +1,16 @@
 :root {
   --red: #d7263d;
-  --positive: #0197f6;
-  --backround: #02182b;
+  --positive: #069ffe;
+  --background: #02182b;
+  --accent: #225b89;
 }
 
 body {
   margin: 0;
-  font-family: Montserrat, "Helvetica Neue", sans-serif;
+  font-family: Poppins, "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--backround);
+  background-color: var(--background);
   color: white;
 }
 
@@ -18,4 +19,70 @@ body {
   flex-direction: column;
   font-size: 24px;
   padding: 32px 20%;
+}
+
+@media screen and (max-width: 425px) {
+  .app {
+    padding: 32px 10%;
+    font-size: 18px;
+  }
+}
+
+.loading {
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.loading-dots {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var(--positive);
+  color: var(--positive);
+  animation: flash 1s infinite linear alternate;
+  animation-delay: 0.5s;
+  margin-left: 18px;
+}
+
+.loading-dots::before,
+.loading-dots::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+
+.loading-dots::before {
+  left: -15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var(--positive);
+  color: var(--positive);
+  animation: flash 1s infinite alternate;
+  animation-delay: 0s;
+}
+
+.loading-dots::after {
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var(--positive);
+  color: var(--positive);
+  animation: flash 1s infinite alternate;
+  animation-delay: 1s;
+}
+
+@keyframes flash {
+  0% {
+    background-color: var(--positive);
+  }
+  50%,
+  100% {
+    background-color: white;
+  }
 }

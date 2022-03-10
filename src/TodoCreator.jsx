@@ -7,13 +7,13 @@ const TodoCreator = (props) => {
           type="text"
           name="todo"
           placeholder="Describe your task"
-          id={"new-todo"}
+          id="new-todo"
           value={newTodoTitle}
           onChange={(event) => setNewTodoTitle(event.target.value)}
         />
       </label>
       <button
-        className={"positive"}
+        className="positive"
         onClick={() => {
           if (newTodoTitle !== "") {
             handleAdd({ title: newTodoTitle.trim() });

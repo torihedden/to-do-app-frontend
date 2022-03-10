@@ -19,12 +19,29 @@
   border-radius: 3px;
 }
 
+@media screen and (max-width: 425px) {
+  .modal-content {
+    width: 80%;
+  }
+}
+
 .modal-prompt {
   border-bottom: solid 1px lightgray;
   padding-bottom: 8px;
   margin-bottom: 16px;
+  font-weight: 700;
 }
 
 .modal-warning {
   font-size: 24px;
+  margin-bottom: 32px;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-wrapper button:nth-of-type(1) {
+  margin-right: 8px;
 }

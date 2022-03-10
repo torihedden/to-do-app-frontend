@@ -16,7 +16,8 @@ const Summary = (props) => {
     <>
       {listLength === 0 ? (
         <div className="summary">
-          Congratulations! You are done with your list.
+          <div className="summary-greeting">Congratulations!</div>
+          You are done with your list.
         </div>
       ) : (
         <div className="summary">

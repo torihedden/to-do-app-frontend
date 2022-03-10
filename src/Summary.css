@@ -1,11 +1,17 @@
 .summary {
-  margin-bottom: 64px;
+  margin-bottom: 48px;
   text-align: center;
-  font-size: 22px;
+  font-size: 24px;
 }
 
 .summary-greeting {
   font-family: "Sansita Swashed", cursive;
   font-size: 56px;
   margin-bottom: 16px;
+}
+
+@media screen and (max-width: 425px) {
+  .summary-greeting {
+    font-size: 40px;
+  }
 }

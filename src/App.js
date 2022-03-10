@@ -72,7 +72,13 @@ function App() {
 
   return (
     <div className="app">
-      {!isLoaded && !error && <div>Loading...</div>}
+      {!isLoaded && !error && (
+        <div className="loading">
+          <div>Loading</div>
+          <div className="loading-dots"></div>
+        </div>
+      )}
+
       {isLoaded && !error && todos !== [] && (
         <List
           todos={todos}
