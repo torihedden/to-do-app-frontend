@@ -22,7 +22,7 @@ const TodoCreator = (props) => {
         }}
         disabled={newTodoTitle === ""}
       >
-        Add new task
+        + Add
       </button>
     </div>
   );

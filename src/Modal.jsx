@@ -5,7 +5,8 @@ const Modal = (props) => {
   return (
     <div className="modal">
       <div className="modal-content">
-        <div>Delete "{currentTodo.title}" task?</div>
+        <div className="modal-prompt">Delete "{currentTodo.title}" task?</div>
+        <div className="modal-warning">This cannot be undone.</div>
         <div className="button-wrapper">
           <button
             onClick={() => {

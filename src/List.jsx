@@ -2,6 +2,7 @@ import { useState } from "react";
 import Modal from "./Modal";
 import Summary from "./Summary";
 import TodoCreator from "./TodoCreator";
+import "./List.css";
 
 const List = (props) => {
   const { todos, handleEdit, handleAdd, handleDelete } = props;
@@ -59,11 +60,12 @@ const List = (props) => {
               </label>
 
               <div
-                className={
-                  isEditing && todo._id === currentTodo._id
-                    ? "editing-wrapper editing"
-                    : "editing-wrapper"
-                }
+                className="editing-wrapper"
+                // className={
+                //   isEditing && todo._id === currentTodo._id
+                //     ? "editing"
+                //     : "editing-wrapper"
+                // }
               >
                 {isEditing && todo._id === currentTodo._id && (
                   <>
@@ -80,7 +82,16 @@ const List = (props) => {
                       readOnly={todo.completed}
                     />
 
-                    <div className="editing-buttons-wrapper">
+                    <div>
+                      <button
+                        onClick={() => {
+                          setCurrentTodo({});
+                          setIsEditing(false);
+                        }}
+                      >
+                        Cancel
+                      </button>
+
                       <button
                         className="positive"
                         onClick={() => {
@@ -92,15 +103,6 @@ const List = (props) => {
                         }}
                       >
                         Save
-                      </button>
-
-                      <button
-                        onClick={() => {
-                          setCurrentTodo({});
-                          setIsEditing(false);
-                        }}
-                      >
-                        Cancel
                       </button>
                     </div>
                   </>
@@ -118,9 +120,10 @@ const List = (props) => {
                   </button>
                 )}
               </div>
+
               <button
                 title="Delete task"
-                className="negative"
+                className="positive"
                 onClick={() => {
                   setCurrentTodo(todo);
                   setisDeleting(currentTodo);
@@ -159,18 +162,16 @@ const List = (props) => {
                 <span className="title">{todo.title}</span>
               )}
             </label>
-            <div className="editing-wrapper">
-              <button
-                title="Delete task"
-                className="negative"
-                onClick={() => {
-                  setCurrentTodo(todo);
-                  setisDeleting(currentTodo);
-                }}
-              >
-                X
-              </button>
-            </div>
+            <button
+              title="Delete task"
+              className="positive"
+              onClick={() => {
+                setCurrentTodo(todo);
+                setisDeleting(currentTodo);
+              }}
+            >
+              X
+            </button>
           </div>
         ))}
     </>

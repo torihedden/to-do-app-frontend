@@ -7,13 +7,24 @@
   height: 100%;
   overflow: auto;
   background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background-color: white;
   color: black;
   margin: 15% auto;
   padding: 24px;
-  width: 80%;
+  width: 50%;
+  border-radius: 3px;
+}
+
+.modal-prompt {
+  border-bottom: solid 1px lightgray;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.modal-warning {
+  font-size: 24px;
 }

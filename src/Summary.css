@@ -1,4 +1,11 @@
 .summary {
-  margin-bottom: 32px;
+  margin-bottom: 64px;
   text-align: center;
+  font-size: 22px;
+}
+
+.summary-greeting {
+  font-family: "Sansita Swashed", cursive;
+  font-size: 56px;
+  margin-bottom: 16px;
 }
