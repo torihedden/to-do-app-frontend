@@ -23,7 +23,11 @@ const List = (props) => {
 
       <Summary listLength={todos.filter((todo) => !todo.completed).length} />
 
-      <TodoCreator handleAdd={handleAdd} setNewTodoTitle={setNewTodoTitle} />
+      <TodoCreator
+        handleAdd={handleAdd}
+        newTodoTitle={newTodoTitle}
+        setNewTodoTitle={setNewTodoTitle}
+      />
 
       {/* Incompleted tasks */}
       <div className="uncompleted-todos">

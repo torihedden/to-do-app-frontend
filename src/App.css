@@ -134,10 +134,6 @@ button {
   cursor: pointer;
 }
 
-button:disabled {
-  border: solid 2px darkgray;
-}
-
 button.negative {
   background-color: var(--red);
   color: white;
