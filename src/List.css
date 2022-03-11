@@ -103,6 +103,7 @@ input:focus {
 
 .delete-button {
   width: 32px;
+  font-weight: 800;
 }
 
 .delete-all-wrapper {

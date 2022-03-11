@@ -159,7 +159,7 @@ const List = (props) => {
               </label>
               <button
                 title="Delete task"
-                className="positive"
+                className={"positive delete-button"}
                 onClick={() => {
                   setCurrentTodo(todo);
                   setisDeleting(currentTodo);
