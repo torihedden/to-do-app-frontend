@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/to-do-app-frontend/static/css/main.30070e91.chunk.css",
-    "main.js": "/to-do-app-frontend/static/js/main.01f80e97.chunk.js",
-    "main.js.map": "/to-do-app-frontend/static/js/main.01f80e97.chunk.js.map",
+    "main.css": "/to-do-app-frontend/static/css/main.08040566.chunk.css",
+    "main.js": "/to-do-app-frontend/static/js/main.0714322c.chunk.js",
+    "main.js.map": "/to-do-app-frontend/static/js/main.0714322c.chunk.js.map",
     "runtime-main.js": "/to-do-app-frontend/static/js/runtime-main.74d5054e.js",
     "runtime-main.js.map": "/to-do-app-frontend/static/js/runtime-main.74d5054e.js.map",
     "static/js/2.1d7a86b2.chunk.js": "/to-do-app-frontend/static/js/2.1d7a86b2.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.ea7d434f.chunk.js": "/to-do-app-frontend/static/js/3.ea7d434f.chunk.js",
     "static/js/3.ea7d434f.chunk.js.map": "/to-do-app-frontend/static/js/3.ea7d434f.chunk.js.map",
     "index.html": "/to-do-app-frontend/index.html",
-    "static/css/main.30070e91.chunk.css.map": "/to-do-app-frontend/static/css/main.30070e91.chunk.css.map",
+    "static/css/main.08040566.chunk.css.map": "/to-do-app-frontend/static/css/main.08040566.chunk.css.map",
     "static/js/2.1d7a86b2.chunk.js.LICENSE.txt": "/to-do-app-frontend/static/js/2.1d7a86b2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.74d5054e.js",
     "static/js/2.1d7a86b2.chunk.js",
-    "static/css/main.30070e91.chunk.css",
-    "static/js/main.01f80e97.chunk.js"
+    "static/css/main.08040566.chunk.css",
+    "static/js/main.0714322c.chunk.js"
   ]
 }
