@@ -10,8 +10,12 @@
   margin-bottom: 16px;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 680px) {
   .summary-greeting {
     font-size: 40px;
+  }
+
+  .summary-item-details {
+    font-size: 18px;
   }
 }

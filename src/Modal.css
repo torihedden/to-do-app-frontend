@@ -32,9 +32,23 @@
   font-weight: 700;
 }
 
-.modal-warning {
-  font-size: 24px;
+.modal-text {
   margin-bottom: 32px;
+}
+
+@media screen and (max-width: 680px) {
+  .modal-prompt {
+    font-size: 20px;
+  }
+
+  .modal-text {
+    font-size: 20px;
+  }
+}
+
+.edit-task {
+  width: 80%;
+  margin-bottom: 24px;
 }
 
 .button-wrapper {

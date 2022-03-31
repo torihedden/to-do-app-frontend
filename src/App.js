@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import "./App.css";
-import List from "./List.jsx";
+import List from "./List/List.jsx";
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -30,7 +30,7 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [todos, setTodos] = useState([]);
 
-  const handleEdit = (currentTodo) => {
+  function handleEdit(currentTodo) {
     fetch(URI, {
       method: "PUT",
       headers: {
@@ -40,7 +40,7 @@ function App() {
     })
       .then((res) => res.json())
       .then((res) => setTodos(res));
-  };
+  }
 
   function handleAdd(todo) {
     fetch(URI, {

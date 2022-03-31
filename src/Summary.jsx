@@ -22,7 +22,10 @@ const Summary = (props) => {
       ) : (
         <div className="summary">
           <div className="summary-greeting">{greeting()}</div>
-          <div>You have {listLength} items left on your list.</div>
+          <div className="summary-item-details">
+            You have {listLength} {listLength > 1 ? "items" : "item"} left on
+            your list.
+          </div>
         </div>
       )}
     </>
