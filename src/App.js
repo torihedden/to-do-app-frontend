@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import "./App.css";
 import List from "./List/List.jsx";
+import Loading from "./Loading/Loading.jsx";
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -72,12 +73,7 @@ function App() {
 
   return (
     <div className="app">
-      {!isLoaded && !error && (
-        <div className="loading">
-          <div>Loading</div>
-          <div className="loading-dots"></div>
-        </div>
-      )}
+      {!isLoaded && !error && <Loading />}
 
       {isLoaded && !error && todos !== [] && (
         <List

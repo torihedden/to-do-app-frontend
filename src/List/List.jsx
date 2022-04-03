@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Modal from "../Modal";
-import Summary from "../Summary";
-import TodoCreator from "../TodoCreator";
+import Modal from "../Modal/Modal";
+import Summary from "../Summary/Summary";
+import TodoCreator from "../TodoCreator/TodoCreator";
 import "./List.css";
 
 const List = (props) => {
