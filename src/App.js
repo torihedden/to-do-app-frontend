@@ -1,15 +1,30 @@
 import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./App.css";
-import List from "./List/List.jsx";
-import Loading from "./Loading/Loading.jsx";
+import List from "./List/List";
+import Loading from "./Loading/Loading";
+import Login from "./Login/Login";
+import useToken from "./useToken";
 
 const dotenv = require("dotenv");
 dotenv.config();
 
 const URI = process.env.REACT_APP_URI;
 
+// function setToken(token) {
+//   sessionStorage.setItem("tiny-todo-token", JSON.stringify(token));
+// }
+
+// function getToken() {
+//   const tokenString = sessionStorage.getItem("tiny-todo-token");
+//   const token = JSON.parse(tokenString);
+//   return token?.token;
+// }
+
 function App() {
+  const { token, setToken } = useToken();
+
   useEffect(() => {
     let mounted = true;
 
@@ -21,11 +36,15 @@ function App() {
           setTodos(res);
         }
       })
+      // TODO: add error messaging to other request types
       .catch((error) => {
         console.log("Error: ", error);
         setError("There was a problem retrieving your to-do list.");
       });
   }, []);
+
+  // const [token, setToken] = useState();
+  // const token = getToken();
 
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -71,20 +90,41 @@ function App() {
       .then((res) => setTodos(res));
   }
 
+  const HomePage = () => {
+    return (
+      <>
+        {!isLoaded && !error && <Loading />}
+
+        <div className="logout-wrapper">
+          <button>Logout</button>
+        </div>
+
+        {isLoaded && !error && todos !== [] && (
+          <List
+            todos={todos}
+            handleEdit={handleEdit}
+            handleAdd={handleAdd}
+            handleDelete={handleDelete}
+          />
+        )}
+
+        {error && error}
+      </>
+    );
+  };
+
+  if (!token) {
+    return <Login setToken={setToken} />;
+  }
+
   return (
     <div className="app">
-      {!isLoaded && !error && <Loading />}
-
-      {isLoaded && !error && todos !== [] && (
-        <List
-          todos={todos}
-          handleEdit={handleEdit}
-          handleAdd={handleAdd}
-          handleDelete={handleDelete}
-        />
-      )}
-
-      {error && error}
+      <Router>
+        <Routes>
+          {/* <Route path="login" element={<Login token={"1234"} />} /> */}
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
