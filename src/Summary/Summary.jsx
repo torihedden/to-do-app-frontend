@@ -11,10 +11,10 @@ const greeting = () => {
 };
 
 const Summary = (props) => {
-  const { listLength } = props;
+  const { completeListLength, incompleteListLength } = props;
   return (
     <>
-      {listLength === 0 ? (
+      {completeListLength !== 0 && incompleteListLength === 0 ? (
         <div className="summary">
           <div className="summary-greeting">Congratulations!</div>
           You are done with your list.
@@ -23,8 +23,14 @@ const Summary = (props) => {
         <div className="summary">
           <div className="summary-greeting">{greeting()}</div>
           <div className="summary-item-details">
-            You have {listLength} {listLength > 1 ? "items" : "item"} left on
-            your list.
+            {completeListLength === 0 &&
+              incompleteListLength === 0 &&
+              "You haven't added any tasks yet."}
+
+            {incompleteListLength >= 1 &&
+              `You have ${incompleteListLength} ${
+                incompleteListLength > 1 ? "items" : "item"
+              } left on your list.`}
           </div>
         </div>
       )}

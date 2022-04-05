@@ -12,23 +12,13 @@ dotenv.config();
 
 const URI = process.env.REACT_APP_URI;
 
-// function setToken(token) {
-//   sessionStorage.setItem("tiny-todo-token", JSON.stringify(token));
-// }
-
-// function getToken() {
-//   const tokenString = sessionStorage.getItem("tiny-todo-token");
-//   const token = JSON.parse(tokenString);
-//   return token?.token;
-// }
-
 function App() {
-  const { token, setToken } = useToken();
+  const { setToken, deleteToken, token } = useToken();
 
   useEffect(() => {
     let mounted = true;
 
-    fetch(URI)
+    fetch(`${URI}/todos`)
       .then((res) => res.json())
       .then((res) => {
         if (mounted) {
@@ -43,15 +33,12 @@ function App() {
       });
   }, []);
 
-  // const [token, setToken] = useState();
-  // const token = getToken();
-
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [todos, setTodos] = useState([]);
 
   function handleEdit(currentTodo) {
-    fetch(URI, {
+    fetch(`${URI}/todos`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -63,7 +50,7 @@ function App() {
   }
 
   function handleAdd(todo) {
-    fetch(URI, {
+    fetch(`${URI}/todos`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -79,12 +66,22 @@ function App() {
   }
 
   function handleDelete(id) {
-    fetch(URI, {
+    fetch(`${URI}/todos/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ id: id }),
+    })
+      .then((res) => res.json())
+      .then((res) => setTodos(res));
+  }
+
+  function handleDeleteCompletedTodos() {
+    fetch(`${URI}/todos/completed`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
       .then((res) => res.json())
       .then((res) => setTodos(res));
@@ -95,18 +92,19 @@ function App() {
       <>
         {!isLoaded && !error && <Loading />}
 
-        <div className="logout-wrapper">
-          <button>Logout</button>
-        </div>
-
         {isLoaded && !error && todos !== [] && (
           <List
             todos={todos}
             handleEdit={handleEdit}
             handleAdd={handleAdd}
             handleDelete={handleDelete}
+            handleDeleteCompletedTodos={handleDeleteCompletedTodos}
           />
         )}
+
+        <div className="logout-wrapper">
+          <button onClick={() => deleteToken()}>Logout</button>
+        </div>
 
         {error && error}
       </>
@@ -121,7 +119,6 @@ function App() {
     <div className="app">
       <Router>
         <Routes>
-          {/* <Route path="login" element={<Login token={"1234"} />} /> */}
           <Route path="/" element={<HomePage />} />
         </Routes>
       </Router>

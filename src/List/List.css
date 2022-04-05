@@ -1,7 +1,7 @@
 .logout-wrapper {
-  outline: solid 2px yellowgreen;
   display: flex;
   justify-content: flex-end;
+  margin-top: 48px; 
 }
 
 input {
@@ -126,6 +126,12 @@ input:focus {
 
 .delete-all-button {
   width: 100%;
+  padding: 8px;
+}
+
+.delete-all-button:disabled {
+  background-color: var(--disabled);
+  cursor: not-allowed;
 }
 
 @media screen and (max-width: 425px) {
@@ -141,7 +147,6 @@ input:focus {
 
 .title {
   padding-left: 40px;
-  outline: solid 1px green;
 }
 
 @media screen and (max-width: 680px) {

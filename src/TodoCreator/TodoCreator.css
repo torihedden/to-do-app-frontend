@@ -3,7 +3,6 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 48px;
-  outline: solid 2px red;
 }
 
 .new-task-wrapper label {
@@ -51,3 +50,7 @@ button.add-todo:focus {
   outline: solid 3px white;
 }
 
+button.add-todo:disabled {
+  background-color: var(--disabled);
+  cursor: not-allowed;
+}
