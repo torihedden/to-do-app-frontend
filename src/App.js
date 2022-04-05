@@ -119,7 +119,7 @@ function App() {
     <div className="app">
       <Router>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/to-do-app-frontend/" element={<HomePage />} />
         </Routes>
       </Router>
     </div>
