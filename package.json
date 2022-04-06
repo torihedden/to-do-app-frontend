@@ -2,7 +2,7 @@
   "name": "to-do-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://torihedden.com/to-do-app-frontend/",
+  "homepage": "https://torihedden.com/to-do-app-frontend/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
