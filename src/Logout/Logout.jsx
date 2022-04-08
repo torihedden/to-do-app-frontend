@@ -5,12 +5,14 @@ import "./Logout.css";
 const Logout = () => {
   const { logout } = useAuth0();
 
+  const hrefWithoutTrailingSlash = window.location.href.replace(/\/+$/, "");
+
   return (
     <div className="logout-wrapper">
       <button
         onClick={() =>
           logout({
-            returnTo: `${window.location.href}/login`,
+            returnTo: `${hrefWithoutTrailingSlash}/login`,
           })
         }
       >
