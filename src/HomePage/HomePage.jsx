@@ -1,11 +1,36 @@
-import React from "react";
+import { useEffect, useState, React } from "react";
 import List from "../List/List";
 import Loading from "../Loading/Loading";
 import Logout from "../Logout/Logout";
 import { withAuthenticationRequired } from "@auth0/auth0-react";
 
-const HomePage = (props) => {
-  const { todos, setTodos, isLoaded, error, URI } = props;
+const dotenv = require("dotenv");
+dotenv.config();
+
+const URI = process.env.REACT_APP_URI;
+
+const HomePage = () => {
+  useEffect(() => {
+    let mounted = true;
+
+    fetch(`${URI}/todos`)
+      .then((res) => res.json())
+      .then((res) => {
+        if (mounted) {
+          setIsLoaded(true);
+          setTodos(res);
+        }
+      })
+      // TODO: add error messaging to other request types
+      .catch((error) => {
+        console.log("Error: ", error);
+        setError("There was a problem retrieving your to-do list.");
+      });
+  }, []);
+
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [todos, setTodos] = useState([]);
 
   function handleEdit(currentTodo) {
     fetch(`${URI}/todos`, {
@@ -56,6 +81,8 @@ const HomePage = (props) => {
       .then((res) => setTodos(res));
   }
 
+  console.log("error: ", error, "isLoaded: ", isLoaded);
+
   return (
     <>
       {!isLoaded && !error && <Loading />}
@@ -69,9 +96,7 @@ const HomePage = (props) => {
           handleDeleteCompletedTodos={handleDeleteCompletedTodos}
         />
       )}
-
       {error && error}
-
       <Logout />
     </>
   );
