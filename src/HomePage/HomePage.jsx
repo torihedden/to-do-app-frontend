@@ -24,7 +24,7 @@ const HomePage = () => {
       // TODO: add error messaging to other request types
       .catch((error) => {
         console.log("Error: ", error);
-        setError("There was a problem retrieving your to-do list.");
+        setError("There was a problem retrieving your list.");
       });
   }, []);
 
