@@ -1,6 +1,5 @@
 .new-task-wrapper {
   display: flex;
-  justify-content: center;
   align-items: center;
   margin-bottom: 48px;
   max-width: 100%;
@@ -9,6 +8,7 @@
 .new-task-wrapper label {
   max-height: 38px;
   margin-top: -2px;
+  width: 100%;
 }
 
 .new-task-wrapper input {
@@ -16,35 +16,18 @@
   border-radius: 3px;
   min-height: 38px;
   padding-left: 8px;
-  font-size: 18px;
-  margin-right: 12px;
-}
-
-@media screen and (max-width: 680px) {
-  .new-task-wrapper input {
-    font-size: 14px;
-    min-height: 32px;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .new-task-wrapper {
-    justify-content: space-between;
-  }
-
-  .new-task-wrapper label {
-    max-height: 32px;
-    margin-top: -2px;
-  }
-
-  .new-task-wrapper input {
-    min-height: 32px;
-
-  }
+  font-size: 20px;
+  width: 90%;
 }
 
 .new-task-wrapper input:focus {
   outline: solid 3px var(--positive);
+}
+
+button.add-todo {
+  font-size: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 button.add-todo:focus {

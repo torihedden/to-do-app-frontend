@@ -28,6 +28,7 @@ const Modal = (props) => {
             id={currentTodo._id}
             name={currentTodo.title}
             value={content}
+            autoFocus
           />
         )}
         <div className="button-wrapper">

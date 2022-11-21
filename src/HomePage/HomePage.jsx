@@ -9,6 +9,18 @@ dotenv.config();
 
 const URI = process.env.REACT_APP_URI;
 
+function sortByPriority(a, b) {
+  if (a.priority < b.priority) {
+    return -1;
+  }
+
+  if (a.priority > b.priority) {
+    return 1;
+  }
+
+  return 0;
+}
+
 const HomePage = () => {
   useEffect(() => {
     let mounted = true;
@@ -18,7 +30,8 @@ const HomePage = () => {
       .then((res) => {
         if (mounted) {
           setIsLoaded(true);
-          setTodos(res);
+          setTodos(res.sort(sortByPriority));
+          console.log(res);
         }
       })
       // TODO: add error messaging to other request types
@@ -80,8 +93,6 @@ const HomePage = () => {
       .then((res) => res.json())
       .then((res) => setTodos(res));
   }
-
-  console.log("error: ", error, "isLoaded: ", isLoaded);
 
   return (
     <>
