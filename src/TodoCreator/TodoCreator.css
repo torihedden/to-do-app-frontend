@@ -37,4 +37,5 @@ button.add-todo:focus {
 button.add-todo:disabled {
   background-color: var(--disabled);
   cursor: not-allowed;
+  color: white;
 }
