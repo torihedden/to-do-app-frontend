@@ -9,7 +9,7 @@ const TodoCreator = (props) => {
         <input
           type="text"
           name="todo"
-          placeholder="Describe your task"
+          placeholder="New task"
           id="new-todo"
           value={newTodoTitle}
           onChange={(event) => setNewTodoTitle(event.target.value)}
