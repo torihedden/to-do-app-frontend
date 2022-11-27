@@ -6,8 +6,4 @@
 
 ## Deployment
 
-<!-- TODO: Work out how I set up the flow of subdirectory pushed to gh-pages, and branch structure -->
-
-1. Run `npm run predeploy`, then `npm run deploy`.
-
-`git subtree push --prefix build origin gh-pages`
+1. Run `npm run deploy`. This will create an optimized build and deploy the contents of the `build` directory to gh-pages.
