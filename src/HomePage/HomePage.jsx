@@ -2,6 +2,7 @@ import { useEffect, useState, React } from "react";
 import List from "../List/List";
 import Loading from "../Loading/Loading";
 import Logout from "../Logout/Logout";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { withAuthenticationRequired } from "@auth0/auth0-react";
 
 const dotenv = require("dotenv");
@@ -107,7 +108,7 @@ const HomePage = () => {
           handleDeleteCompletedTodos={handleDeleteCompletedTodos}
         />
       )}
-      {error && error}
+      <ErrorMessage error={error} />
       <Logout />
     </>
   );
