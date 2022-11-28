@@ -1,0 +1,51 @@
+.loading-dots {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var(--positive);
+  color: var(--positive);
+  animation: flash 0.6s infinite linear alternate;
+  animation-delay: 0.3s;
+  margin-left: 18px;
+}
+
+.loading-dots::before,
+.loading-dots::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+
+.loading-dots::before {
+  left: -15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var(--positive);
+  color: var(--positive);
+  animation: flash 0.6s infinite alternate;
+  animation-delay: 0s;
+}
+
+.loading-dots::after {
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var(--positive);
+  color: var(--positive);
+  animation: flash 0.6s infinite alternate;
+  animation-delay: 0.6s;
+}
+
+@keyframes flash {
+  0% {
+    background-color: var(--positive);
+  }
+  50%,
+  100% {
+    background-color: white;
+  }
+}

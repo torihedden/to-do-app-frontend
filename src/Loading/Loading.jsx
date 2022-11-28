@@ -1,10 +1,11 @@
+import LoadingDots from "../LoadingDots/LoadingDots";
 import "./Loading.css";
 
-const Loading = (props) => {
+const Loading = () => {
   return (
     <div className="loading">
       <div>Loading</div>
-      <div className="loading-dots"></div>
+      <LoadingDots />
     </div>
   );
 };
