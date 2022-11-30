@@ -6,9 +6,7 @@
 }
 
 .new-task-wrapper label {
-  max-height: 38px;
-  margin-top: -2px;
-  width: 100%;
+  display: none;
 }
 
 .new-task-wrapper input {
@@ -26,6 +24,7 @@
 
 button.add-todo {
   font-size: 20px;
+  margin-left: 16px;
   padding-left: 16px;
   padding-right: 16px;
 }
