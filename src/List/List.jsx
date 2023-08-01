@@ -3,6 +3,7 @@ import Modal from "../Modal/Modal";
 import Summary from "../Summary/Summary";
 import TodoCreator from "../TodoCreator/TodoCreator";
 import "./List.css";
+import imgSrc from "../assets/nuclear-explosion.svg";
 
 const List = (props) => {
   const {
@@ -11,11 +12,13 @@ const List = (props) => {
     handleAdd,
     handleDelete,
     handleDeleteCompletedTodos,
+    // handleDeleteAllTodos,
   } = props;
   const [newTodoTitle, setNewTodoTitle] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [isDeleting, setisDeleting] = useState(false);
   const [isDeletingAllCompleted, setIsDeletingAllCompleted] = useState(false);
+  const [isDeletingAll, setIsDeletingAll] = useState(false);
   const [currentTodo, setCurrentTodo] = useState({});
 
   const incompleteTodos = todos.filter((todo) => !todo.completed);
@@ -82,6 +85,14 @@ const List = (props) => {
         />
       )}
 
+      {isDeletingAll && (
+        <Modal
+          prompt="Delete ALL tasks and start over?"
+          content={"WARNING! This cannot be undone."}
+          confirmText="Delete everything"
+        />
+      )}
+
       <Summary
         completeListLength={completeTodos.length}
         incompleteListLength={incompleteTodos.length}
@@ -91,6 +102,7 @@ const List = (props) => {
         handleAdd={handleAdd}
         newTodoTitle={newTodoTitle}
         setNewTodoTitle={setNewTodoTitle}
+        todoListLength={todos.length}
       />
 
       {/* Incompleted tasks */}
@@ -120,6 +132,7 @@ const List = (props) => {
 
             <div className="editing-wrapper">
               <button
+                type="button"
                 title="Edit task"
                 disabled={todo.completed}
                 onClick={() => {
@@ -131,6 +144,7 @@ const List = (props) => {
               </button>
 
               <button
+                type="button"
                 title="Delete task"
                 className={"positive delete-button"}
                 onClick={() => {
@@ -172,6 +186,7 @@ const List = (props) => {
               )}
             </label>
             <button
+              type="button"
               title="Delete task"
               className={"positive delete-button"}
               onClick={() => {
@@ -185,9 +200,10 @@ const List = (props) => {
         ))}
       </div>
 
-      <div className="delete-all-wrapper">
+      <div className="delete-wrapper">
         <button
-          className={"negative delete-all-button"}
+          type="button"
+          className={"negative delete-all-completed-button"}
           title="Delete all completed tasks"
           disabled={completeTodos.length < 1}
           onClick={() => {
@@ -195,6 +211,13 @@ const List = (props) => {
           }}
         >
           Delete all completed tasks
+        </button>
+        <button
+          type="button"
+          title="Delete all tasks"
+          onClick={() => setIsDeletingAll(true)}
+        >
+          <img style={{ display: "flex" }} width={"30px"} src={imgSrc} alt="" />
         </button>
       </div>
     </>

@@ -38,12 +38,13 @@ const Modal = (props) => {
 
           <div className="button-wrapper">
             <button
+              type="button"
               onClick={cancelAction}
               autoFocus={!isEditable ? true : false}
             >
               Cancel
             </button>
-            <button className="negative" onClick={confirmAction}>
+            <button type="submit" className="negative" onClick={confirmAction}>
               {confirmText}
             </button>
           </div>
