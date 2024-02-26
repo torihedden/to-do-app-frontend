@@ -99,7 +99,7 @@ const HomePage = () => {
     <>
       {!isLoaded && !error && <Loading />}
 
-      {isLoaded && !error && todos !== [] && (
+      {isLoaded && !error && todos.length !== 0 && (
         <List
           todos={todos}
           handleEdit={handleEdit}
