@@ -4,9 +4,7 @@ import Loading from "../Loading/Loading";
 import Logout from "../Logout/Logout";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { withAuthenticationRequired } from "@auth0/auth0-react";
-
-const dotenv = require("dotenv");
-dotenv.config();
+import "dotenv/config"
 
 const URI = process.env.REACT_APP_URI;
 
