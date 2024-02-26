@@ -1,9 +1,0 @@
-.logout-wrapper {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 48px; 
-}
-
-.logout-wrapper button:focus {
-  outline: solid 3px var(--red);
-}

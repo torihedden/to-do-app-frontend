@@ -1,10 +1,8 @@
-import "./TodoCreator.css";
-
 const TodoCreator = (props) => {
   const { handleAdd, newTodoTitle, setNewTodoTitle } = props;
 
   return (
-    <form className="new-task-wrapper">
+    <form>
       <label htmlFor="new-todo">
         <input
           type="text"
@@ -16,7 +14,6 @@ const TodoCreator = (props) => {
         />
       </label>
       <button
-        className="positive add-todo"
         type="submit"
         onClick={() => {
           if (newTodoTitle !== "") {

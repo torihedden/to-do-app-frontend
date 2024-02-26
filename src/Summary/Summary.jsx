@@ -1,17 +1,15 @@
-import "./Summary.css";
-
 const Summary = (props) => {
   const { completeListLength, incompleteListLength } = props;
   return (
     <>
       {completeListLength !== 0 && incompleteListLength === 0 ? (
-        <div className="summary">
-          <div className="summary-greeting">Congratulations!</div>
+        <div>
+          <div>Congratulations!</div>
           You are done with your list.
         </div>
       ) : (
-        <div className="summary">
-          <div className="summary-item-details">
+        <div>
+          <div>
             {completeListLength === 0 &&
               incompleteListLength === 0 &&
               "You haven't added any tasks yet."}

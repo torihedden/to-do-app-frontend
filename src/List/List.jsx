@@ -2,7 +2,6 @@ import { useState } from "react";
 import Modal from "../Modal/Modal";
 import Summary from "../Summary/Summary";
 import TodoCreator from "../TodoCreator/TodoCreator";
-import "./List.css";
 
 const List = (props) => {
   const {
@@ -65,9 +64,8 @@ const List = (props) => {
 
       {isDeletingAllCompleted && (
         <Modal
-          prompt={`Delete ${completeTodos.length} completed ${
-            completeTodos.length === 1 ? "task" : "tasks"
-          }?`}
+          prompt={`Delete ${completeTodos.length} completed ${completeTodos.length === 1 ? "task" : "tasks"
+            }?`}
           content={"This cannot be undone."}
           cancelAction={() => {
             setIsDeletingAllCompleted(false);
@@ -76,9 +74,8 @@ const List = (props) => {
             handleDeleteCompletedTodos();
             setIsDeletingAllCompleted(false);
           }}
-          confirmText={`Delete ${
-            completeTodos.length === 1 ? "task" : "tasks"
-          }`}
+          confirmText={`Delete ${completeTodos.length === 1 ? "task" : "tasks"
+            }`}
         />
       )}
 
@@ -94,12 +91,11 @@ const List = (props) => {
       />
 
       {/* Incompleted tasks */}
-      <div className="uncompleted-todos">
+      <div>
         {incompleteTodos.map((todo) => (
-          <div key={todo._id} className="todo-wrapper">
+          <div key={todo._id}>
             <label
               htmlFor={todo.title}
-              className={todo.completed ? "completed-task" : ""}
             >
               <input
                 type="checkbox"
@@ -114,11 +110,11 @@ const List = (props) => {
                 name={todo.title}
                 value={todo.title}
               />
-              <span className="checkmark">{todo.completed}</span>
-              <span className="title">{todo.title}</span>
+              <span>{todo.completed}</span>
+              <span>{todo.title}</span>
             </label>
 
-            <div className="editing-wrapper">
+            <div>
               <button
                 title="Edit task"
                 disabled={todo.completed}
@@ -132,7 +128,6 @@ const List = (props) => {
 
               <button
                 title="Delete task"
-                className={"positive delete-button"}
                 onClick={() => {
                   setCurrentTodo(todo);
                   setisDeleting(currentTodo);
@@ -146,12 +141,11 @@ const List = (props) => {
       </div>
 
       {/* Completed tasks */}
-      <div className="completed-todos">
+      <div>
         {completeTodos.map((todo) => (
-          <div key={todo._id} className="todo-wrapper">
+          <div key={todo._id}>
             <label
               htmlFor={todo.title}
-              className={todo.completed ? "completed-task" : ""}
             >
               <input
                 type="checkbox"
@@ -166,14 +160,13 @@ const List = (props) => {
                 name={todo.title}
                 value={todo.title}
               />
-              <span className="checkmark">{todo.completed}</span>
+              <span>{todo.completed}</span>
               {!(isEditing && currentTodo._id === todo._id) && (
-                <span className="title">{todo.title}</span>
+                <span>{todo.title}</span>
               )}
             </label>
             <button
               title="Delete task"
-              className={"positive delete-button"}
               onClick={() => {
                 setCurrentTodo(todo);
                 setisDeleting(currentTodo);
@@ -185,9 +178,8 @@ const List = (props) => {
         ))}
       </div>
 
-      <div className="delete-all-wrapper">
+      <div>
         <button
-          className={"negative delete-all-button"}
           title="Delete all completed tasks"
           disabled={completeTodos.length < 1}
           onClick={() => {

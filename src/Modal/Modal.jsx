@@ -1,5 +1,3 @@
-import "./Modal.css";
-
 const Modal = (props) => {
   const {
     currentTodo,
@@ -13,18 +11,17 @@ const Modal = (props) => {
   } = props;
 
   return (
-    <div className="modal">
-      <div className="modal-content">
-        <div className="modal-prompt">{prompt}</div>
+    <div>
+      <div>
+        <div>{prompt}</div>
 
         {/* for deletion modal */}
-        {!isEditable && <div className="modal-text">{content}</div>}
+        {!isEditable && <div>{content}</div>}
 
         <form>
           {/* for editing modal */}
           {isEditable && (
             <input
-              className="edit-task"
               type="text"
               onChange={(event) => {
                 setCurrentTodo({ ...currentTodo, title: event.target.value });
@@ -36,14 +33,14 @@ const Modal = (props) => {
             />
           )}
 
-          <div className="button-wrapper">
+          <div>
             <button
               onClick={cancelAction}
               autoFocus={!isEditable ? true : false}
             >
               Cancel
             </button>
-            <button className="negative" onClick={confirmAction}>
+            <button onClick={confirmAction}>
               {confirmText}
             </button>
           </div>

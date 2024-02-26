@@ -1,9 +1,8 @@
 import LoadingDots from "../LoadingDots/LoadingDots";
-import "./Loading.css";
 
 const Loading = () => {
   return (
-    <div className="loading">
+    <div>
       <div>Loading</div>
       <LoadingDots />
     </div>

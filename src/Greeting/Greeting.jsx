@@ -11,7 +11,7 @@ const Greeting = () => {
     }
 
     return (
-        <div style={{ fontSize: '40px', textAlign: 'center' }}> {greeting()}</ div>
+        <div> {greeting()}</ div>
     )
 }
 

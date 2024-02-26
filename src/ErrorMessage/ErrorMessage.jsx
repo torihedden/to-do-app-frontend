@@ -1,7 +1,5 @@
-import "./ErrorMessage.css";
-
 const ErrorMessage = ({ error }) => {
-  return <div className="error-message">{error}</div>;
+  return <div>{error}</div>;
 };
 
 export default ErrorMessage;
