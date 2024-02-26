@@ -1,4 +1,5 @@
 import { useEffect, useState, React } from "react";
+import Greeting from "../Greeting/Greeting"
 import List from "../List/List";
 import Loading from "../Loading/Loading";
 import Logout from "../Logout/Logout";
@@ -95,9 +96,11 @@ const HomePage = () => {
 
   return (
     <>
+      <Greeting />
+
       {!isLoaded && !error && <Loading />}
 
-      {isLoaded && !error && todos.length !== 0 && (
+      {isLoaded && !error && (
         <List
           todos={todos}
           handleEdit={handleEdit}

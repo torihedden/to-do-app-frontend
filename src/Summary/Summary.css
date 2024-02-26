@@ -4,16 +4,7 @@
   font-size: 24px;
 }
 
-.summary-greeting {
-  font-family: "Sansita Swashed", sans-serif;
-  font-size: 56px;
-  margin-bottom: 16px;
-}
-
 @media screen and (max-width: 680px) {
-  .summary-greeting {
-    font-size: 40px;
-  }
 
   .summary-item-details {
     font-size: 18px;
