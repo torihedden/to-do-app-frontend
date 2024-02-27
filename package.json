@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "https://torihedden.com/to-do-app-frontend/",
   "dependencies": {
-    "@auth0/auth0-react": "^1.9.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -14,9 +13,9 @@
     "@types/react-dom": "^17.0.14",
     "gh-pages": "^3.2.3",
     "mongodb": "^4.1.3",
-    "react": "^18.0.0",
-    "react-dom": "^17.0.2",
-    "react-router-dom": "^6.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.22.1",
     "react-scripts": "4.0.3",
     "typescript": "^4.6.3",
     "web-vitals": "^1.0.1"
